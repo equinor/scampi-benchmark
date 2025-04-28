@@ -1,0 +1,7 @@
+pytorch<2.6
+torchvision
+pandas
+matplotlib
+scikit-learn
+timm
+h5py
