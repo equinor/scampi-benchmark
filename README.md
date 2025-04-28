@@ -43,6 +43,17 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   </tr>
 </table>
 
+### Usage
+
+The ViTs presented in this work are backbone models for various downstream tasks. See **example_usage.py** for a minimum working example of how to create image embeddings using the ViT-S model. <br>
+<br>
+To install necessary dependencies using conda: <br>
+<br>
+`conda env create --name scampi-benchmark --file requirements.txt` <br>
+<br>
+To reproduce the evaluation from the paper: <br>
+<br>
+`python run_evaluation.py` <br>
 
 ### Acknowledgements
 We are grateful to Equinor for permission to release the labelled data, and to [Martin Pearce](https://www.palaeo7.com/people/martin-pearce.html) for performing the labelling.
