@@ -11,7 +11,38 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   - 697 labelled images from 20 genera of dinoflagellate cycts and other palynomorphs from the well NO 6407/6-5 
   - These images are distributed under the [Norwegian Licence for Open Government Data (NLOD) 2.0](https://data.norge.no/nlod/en/2.0), as adaptations of palynology slide scans created by the [Norwegian Offshore Directorate](https://www.sodir.no/en/facts/geology/geobank/palyslides/palynology-slides-available-in-diskos/)
 
-- Code for benchmarking the performance of our network (insert Huggingface link) against [dino-vits8](https://huggingface.co/facebook/dino-vits8) and [dino-vits16](https://huggingface.co/facebook/dino-vits16) from Meta is also provided.
+- Code for benchmarking the performance of [our networks](https://huggingface.co/IverMartinsen/scampi-dino-vits16) against [dino-vits8](https://huggingface.co/facebook/dino-vits8) and [dino-vits16](https://huggingface.co/facebook/dino-vits16) from Meta is also provided. You can choose to download only the weights of the pretrained backbone used for downstream tasks, or the full checkpoint which contains backbone and projection head weights for both student and teacher networks from the DINO training. We also provide the detailed arguments and training logs.
+
+<table>
+  <tr>
+    <th>arch</th>
+    <th>params</th>
+    <th>nn f1</th>
+    <th>p@n_k</th>
+    <th colspan="4">download</th>
+  </tr>
+  <tr>
+    <td>ViT-S/16</td>
+    <td>21M</td>
+    <td>0.91</td>
+    <td>0.60</td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_backbone.pth?download=true">backbone only</a></td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_checkpoint.pth?download=true">full ckpt</a></td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_args.txt?download=true">args</a></td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_log.txt?download=true">logs</a></td>
+  </tr>
+  <tr>
+    <td>ViT-B/16</td>
+    <td>85M</td>
+    <td>0.90</td>
+    <td>0.60</td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_backbone.pth?download=true">backbone only</a></td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_checkpoint.pth?download=true">full ckpt</a></td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_args.txt?download=true">args</a></td>
+    <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_log.txt?download=true">logs</a></td>
+  </tr>
+</table>
+
 
 ### Acknowledgements
 We are grateful to Equinor for permission to release the labelled data, and to [Martin Pearce](https://www.palaeo7.com/people/martin-pearce.html) for performing the labelling.
