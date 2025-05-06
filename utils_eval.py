@@ -40,8 +40,8 @@ def load_from_url(model, url):
 def load_scampi_model(arch, patch_size):
     model = vits.__dict__[arch](patch_size=patch_size, num_classes=0)
     if arch == 'vit_small' and patch_size == 16:
-        #url = 'https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_backbone.pth?download=true'
-        url = 'https://huggingface.co/IverMartinsen/scampi-test/resolve/main/vit_small_backbone_random_weights.pth?download=true'
+        url = 'https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_backbone.pth?download=true'
+        #url = 'https://huggingface.co/IverMartinsen/scampi-test/resolve/main/vit_small_backbone_random_weights.pth?download=true'
     elif arch == 'vit_base' and patch_size == 16:
         url = 'https://huggingface.co/IverMartinsen/scampi-dino-vitb16/resolve/main/vit_base_backbone.pth?download=true'
     else:
