@@ -32,19 +32,27 @@ from sklearn.metrics import (
 )
 
 from utils_cbir import compute_recall_at_k, plot_precision_recall_curve, retrieve_filenames
-from utils_eval import load_vit_mae_model, load_dinov2_model, load_dino_model
+from utils_eval import load_model
 
 if __name__ == '__main__':
 
     parser = argparse.ArgumentParser('Evaluation benchmark')
-    parser.add_argument('--data_path', default='imagefolder_20', type=str, help='Path to evaluation dataset')
-    parser.add_argument('--pretrained_weights', default='https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_backbone.pth?download=true', type=str, help="Pretrained weights to evaluate. For ImageNet weights, use 'vit_mae' (ViT-MAE), 'dinov2' (DINOv2) or '' (DINOv1). For custom weights, use the path to the weights.")
-    parser.add_argument('--arch', default='vit_small', type=str, help='Architecture. Options: vit_small, vit_base')
-    parser.add_argument("--checkpoint_key", default="teacher", type=str, help='Key to use in the checkpoint (example: "teacher")')
-    parser.add_argument('--destination', default='benchmark-results', type=str, help='Destination folder for storing the results.')
-    parser.add_argument('--patch_size', default=16, type=int, help='Patch resolution of the model.')
-    parser.add_argument('--batch_size', default=128, type=int, help='GPU batch-size.')
-    parser.add_argument('--nb_knn', default=[1, 3, 5, 7, 9], nargs='+', type=int, help='Number of NN to use.')
+    parser.add_argument('--data_path', default='imagefolder_20', type=str, 
+                        help='Path to evaluation dataset')
+    parser.add_argument('--pretrained_weights', default='scampi_dino', type=str, 
+                        help='Pretrained weights to evaluate. Options: "scampi_dino", "dinov1", "dinov2", "vit_mae", or "/path/to/weights.pth".')
+    parser.add_argument('--arch', default='vit_small', type=str, 
+                        help='Architecture. Options: "vit_small", "vit_base"')
+    parser.add_argument("--checkpoint_key", default="teacher", type=str, 
+                        help='Key to use in the checkpoint. Options: "teacher", "student".')
+    parser.add_argument('--destination', default='benchmark-results', type=str, 
+                        help='Destination folder for storing the results.')
+    parser.add_argument('--patch_size', default=16, type=int, 
+                        help='Patch resolution of the model.')
+    parser.add_argument('--batch_size', default=128, type=int, 
+                        help='GPU batch-size.')
+    parser.add_argument('--nb_knn', default=[1, 3, 5, 7, 9], nargs='+', type=int, 
+                        help='Number of neighbors to use in the NN evaluation.')
     args = parser.parse_args()
 
     print("\n".join("%s: %s" % (k, str(v)) for k, v in sorted(dict(vars(args)).items())))
@@ -62,12 +70,7 @@ if __name__ == '__main__':
     data_loader = torch.utils.data.DataLoader(ds, batch_size=args.batch_size, shuffle=False)
     
     # ============ building network ... ============
-    if args.pretrained_weights == 'vit_mae':
-        model = load_vit_mae_model(args)
-    elif args.pretrained_weights == 'dinov2':
-        model = load_dinov2_model(args)
-    else:
-        model = load_dino_model(args)
+    model = load_model(args)
     
     model.eval()
     print(f"Model {args.arch} {args.patch_size}x{args.patch_size} built.")
