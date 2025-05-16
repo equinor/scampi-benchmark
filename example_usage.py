@@ -38,5 +38,5 @@ if __name__ == "__main__":
     for samples, labels in data_loader:
         features = model(samples).detach().numpy()
         labels = labels.detach().numpy()
-        print(f'Extracted {features.shape[0]} features of shape {features.shape[1:]}')
+        print(f'Extracted features of shape {features.shape[1:]} from {features.shape[0]} images.')
         break
