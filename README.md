@@ -14,7 +14,7 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   - 697 labelled images from 20 genera of dinoflagellate cycts and other palynomorphs from the well NO 6407/6-5 
   - These images are distributed under the [Norwegian Licence for Open Government Data (NLOD) 2.0](https://data.norge.no/nlod/en/2.0), as adaptations of palynology slide scans created by the [Norwegian Offshore Directorate](https://www.sodir.no/en/facts/geology/geobank/palyslides/palynology-slides-available-in-diskos/)
 
-- Code for benchmarking the performance of [our networks](https://huggingface.co/IverMartinsen/scampi-dino-vits16) against [dino-vits8](https://huggingface.co/facebook/dino-vits8) and [dino-vits16](https://huggingface.co/facebook/dino-vits16) from Meta is also provided. You can choose to download only the weights of the pretrained backbone used for downstream tasks, or the full checkpoint which contains backbone and projection head weights for both student and teacher networks from the DINO training. We also provide the detailed arguments and training logs.
+- Code for benchmarking the performance of [our networks](https://huggingface.co/IverMartinsen/scampi-dino-vits16) against [dino-vits8](https://huggingface.co/facebook/dino-vits8) and [dino-vits16](https://huggingface.co/facebook/dino-vits16) from Meta is also provided. You can choose to download only the weights of the pretrained backbone used for downstream tasks, or the full checkpoint which contains backbone and projection head weights for both student and teacher networks from the DINO training. We also provide the detailed arguments and training logs, in addition to a comparison to pretrained ViTs.
 
 <table>
   <tr>
