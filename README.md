@@ -1,5 +1,8 @@
 ## Scampi Benchmark - compare feature-extraction methods for microfossil images
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/scampi-benchmark/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/scampi-benchmark/badge)
+
 As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https://www.equinor.com/energy/digitalisation) as part of the [SFI Visual Intelligence consortium](https://www.visual-intelligence.no/publications/the-3-billion-fossil-question-how-to-automate-classification-of-microfossils), our paper ["The 3-billion fossil question: How to automate classification of microfossils"](https://doi.org/10.1016/j.aiig.2024.100080) introduced the use of self-supervised learning for creating a DNN which excels at image feature extraction for images of microfossils. Further work in our upcoming publication "The Fossil Frontier: Answering the 3-billion fossil question" builds on this, using a data-curation step which increases the performance on the downstream tasks of CBIR and image classification.
 
 ![tsne_plots_repo](https://github.com/user-attachments/assets/f2f2fe23-1fdb-4046-a2c1-0142de9a6e9b)
@@ -11,7 +14,7 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   - 697 labelled images from 20 genera of dinoflagellate cycts and other palynomorphs from the well NO 6407/6-5 
   - These images are distributed under the [Norwegian Licence for Open Government Data (NLOD) 2.0](https://data.norge.no/nlod/en/2.0), as adaptations of palynology slide scans created by the [Norwegian Offshore Directorate](https://www.sodir.no/en/facts/geology/geobank/palyslides/palynology-slides-available-in-diskos/)
 
-- Code for benchmarking the performance of [our networks](https://huggingface.co/IverMartinsen/scampi-dino-vits16) against [dino-vits8](https://huggingface.co/facebook/dino-vits8) and [dino-vits16](https://huggingface.co/facebook/dino-vits16) from Meta is also provided. You can choose to download only the weights of the pretrained backbone used for downstream tasks, or the full checkpoint which contains backbone and projection head weights for both student and teacher networks from the DINO training. We also provide the detailed arguments and training logs.
+- Code for benchmarking the performance of [our networks](https://huggingface.co/IverMartinsen/scampi-dino-vits16) against [dino-vits8](https://huggingface.co/facebook/dino-vits8) and [dino-vits16](https://huggingface.co/facebook/dino-vits16) from Meta is also provided. You can choose to download only the weights of the pretrained backbone used for downstream tasks, or the full checkpoint which contains backbone and projection head weights for both student and teacher networks from the DINO training. We also provide the detailed arguments and training logs, in addition to a comparison to pretrained ViTs.
 
 <table>
   <tr>
@@ -22,7 +25,7 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
     <th colspan="4">download</th>
   </tr>
   <tr>
-    <td>ViT-S/16</td>
+    <td>SCAMPI ViT-S/16</td>
     <td>21M</td>
     <td>0.91</td>
     <td>0.60</td>
@@ -32,7 +35,7 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
     <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_small_log.txt?download=true">logs</a></td>
   </tr>
   <tr>
-    <td>ViT-B/16</td>
+    <td>SCAMPI ViT-B/16</td>
     <td>85M</td>
     <td>0.90</td>
     <td>0.60</td>
@@ -40,6 +43,46 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
     <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_checkpoint.pth?download=true">full ckpt</a></td>
     <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_args.txt?download=true">args</a></td>
     <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_log.txt?download=true">logs</a></td>
+  </tr>
+  <tr>
+    <td>DINO ViT-S/16</td>
+    <td>21M</td>
+    <td>0.78</td>
+    <td>0.44</td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall16_pretrain/dino_deitsmall16_pretrain.pth">backbone only</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall16_pretrain/dino_deitsmall16_pretrain_full_checkpoint.pth">full ckpt</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall16_pretrain/args.txt">args</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall16_pretrain/dino_deitsmall16_pretrain_log.txt">logs</a></td>
+  </tr>
+  <tr>
+    <td>DINO ViT-S/8</td>
+    <td>21M</td>
+    <td>0.84</td>
+    <td>0.46</td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/dino_deitsmall8_pretrain.pth">backbone only</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/dino_deitsmall8_pretrain_full_checkpoint.pth">full ckpt</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/args.txt">args</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/dino_deitsmall8_pretrain_log.txt">logs</a></td>
+  </tr>
+  <tr>
+    <td>DINO ViT-B/16</td>
+    <td>85M</td>
+    <td>0.81</td>
+    <td>0.47</td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth">backbone only</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain_full_checkpoint.pth">full ckpt</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/args.txt">args</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain_log.txt">logs</a></td>
+  </tr>
+  <tr>
+    <td>DINO ViT-B/8</td>
+    <td>85M</td>
+    <td>0.82</td>
+    <td>0.45</td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/dino_vitbase8_pretrain.pth">backbone only</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/dino_vitbase8_pretrain_full_checkpoint.pth">full ckpt</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/args.txt">args</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/dino_vitbase8_pretrain_log.txt">logs</a></td>
   </tr>
 </table>
 
@@ -54,6 +97,10 @@ To install necessary dependencies using conda: <br>
 To reproduce the evaluation from the paper: <br>
 <br>
 `python run_evaluation.py` <br>
+
+### Contributing
+
+We are excited to see future development in this field. If you have an public model with and open license on HuggingFace which could challenge our metrics on this benchmark we would welcome a PR to include it in the evaluation.
 
 ### Acknowledgements
 We are grateful to Equinor for permission to release the labelled data, and to [Martin Pearce](https://www.palaeo7.com/people/martin-pearce.html) for performing the labelling.
