@@ -1,5 +1,8 @@
 ## Scampi Benchmark - compare feature-extraction methods for microfossil images
 
+[![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+[![SCM Compliance](https://scm-compliance-api.radix.equinor.com/repos/equinor/scampi-benchmark/badge)](https://scm-compliance-api.radix.equinor.com/repos/equinor/scampi-benchmark/badge)
+
 As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https://www.equinor.com/energy/digitalisation) as part of the [SFI Visual Intelligence consortium](https://www.visual-intelligence.no/publications/the-3-billion-fossil-question-how-to-automate-classification-of-microfossils), our paper ["The 3-billion fossil question: How to automate classification of microfossils"](https://doi.org/10.1016/j.aiig.2024.100080) introduced the use of self-supervised learning for creating a DNN which excels at image feature extraction for images of microfossils. Further work in our upcoming publication "The Fossil Frontier: Answering the 3-billion fossil question" builds on this, using a data-curation step which increases the performance on the downstream tasks of CBIR and image classification.
 
 ![tsne_plots_repo](https://github.com/user-attachments/assets/f2f2fe23-1fdb-4046-a2c1-0142de9a6e9b)
@@ -54,6 +57,10 @@ To install necessary dependencies using conda: <br>
 To reproduce the evaluation from the paper: <br>
 <br>
 `python run_evaluation.py` <br>
+
+### Contributing
+
+We are excited to see future development in this field. If you have an public model with and open license on HuggingFace which could challenge our metrics on this benchmark we would welcome a PR to include it in the evaluation.
 
 ### Acknowledgements
 We are grateful to Equinor for permission to release the labelled data, and to [Martin Pearce](https://www.palaeo7.com/people/martin-pearce.html) for performing the labelling.
