@@ -44,6 +44,16 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
     <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_args.txt?download=true">args</a></td>
     <td><a href="https://huggingface.co/IverMartinsen/scampi-dino-vits16/resolve/main/vit_base_log.txt?download=true">logs</a></td>
   </tr>
+  <tr>
+    <td>DINO ViT-S/8</td>
+    <td>21M</td>
+    <td>0.84</td>
+    <td>0.46</td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/dino_deitsmall8_pretrain.pth">backbone only</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/dino_deitsmall8_pretrain_full_checkpoint.pth">full ckpt</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/args.txt">args</a></td>
+    <td><a href="https://dl.fbaipublicfiles.com/dino/dino_deitsmall8_pretrain/dino_deitsmall8_pretrain_log.txt">logs</a></td>
+  </tr>
 </table>
 
 ### Usage
