@@ -130,7 +130,7 @@ if __name__ == '__main__':
     y = cbir_mean_df.loc["precision"].values
     fname = os.path.join(args.destination, "precision_recall_curve_cbir.jpg")
     
-    plot_precision_recall_curve(x, y, fname)
+    pr_auc_area = plot_precision_recall_curve(x, y, fname)
     
     print("CBIR evaluation done.")
     
@@ -189,6 +189,8 @@ if __name__ == '__main__':
     plt.savefig(os.path.join(args.destination, "bot10_retrieved_images.pdf"), bbox_inches="tight", dpi=300)
     plt.close()
 
+    print("Classification evaluation...")
+    
     # ============ Classification evaluation ... ============    
     summary_table = pd.DataFrame() # logistic regression metrics
     conf_mat_stats = {'preds': [], 'labels': []} # logistic regression confusion matrix stats
@@ -206,7 +208,7 @@ if __name__ == '__main__':
         # ============ logistic regression ... ============
         log_model = LogisticRegression(
             max_iter=10000,
-            multi_class="multinomial",
+            #multi_class="multinomial",
             class_weight="balanced",
             random_state=seed,
         )
@@ -226,7 +228,7 @@ if __name__ == '__main__':
         
         # ============ k-NN ... ============
         for k in args.nb_knn:
-            print(f"Evaluating k={k}...")
+            #print(f"Evaluating k={k}...")
             
             knn = KNeighborsClassifier(n_neighbors=k, p=2)
             
@@ -248,7 +250,9 @@ if __name__ == '__main__':
                     "f1_score": f1_score(y_test, y_pred, average=None),
                 })
                 class_wise_nn_stats.append(df)
-        
+    
+    print("Classification evaluation done.")
+    
     # ============ summary ... ============
     summary_table.loc["mean", :] = summary_table.mean()
     summary_table.to_csv(os.path.join(args.destination, "summary_metrics.csv"))
@@ -268,3 +272,9 @@ if __name__ == '__main__':
     class_wise_nn_stats_mean.to_csv(os.path.join(args.destination, "class_wise_nn_stats.csv"))
     
     print("Summary metrics saved.")
+    
+    print("\n=========== Evaluation results ==============")
+    print(f"NN F1 Score: {summary_tables_knn[1].loc['mean', 'f1_score']:.2f}")
+    print(f"P @ N_R:     {cbir_mean_df.loc['precision', 'k']:.2f}")
+    print(f"PR AUC:      {pr_auc_area:.2f}")
+    print("=============================================")

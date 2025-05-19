@@ -60,6 +60,7 @@ def plot_precision_recall_curve(x, y, filename):
     plt.tight_layout()
     plt.savefig(filename)
     plt.close()
+    return area
 
 def retrieve_filenames(query, labels, filenames, dists):
     """
