@@ -77,8 +77,8 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   <tr>
     <td>DINO ViT-B/8</td>
     <td>85M</td>
-    <td>0.81</td>
-    <td>0.47</td>
+    <td>0.82</td>
+    <td>0.45</td>
     <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/dino_vitbase8_pretrain.pth">backbone only</a></td>
     <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/dino_vitbase8_pretrain_full_checkpoint.pth">full ckpt</a></td>
     <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/args.txt">args</a></td>
