@@ -66,7 +66,7 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   </tr>
   <tr>
     <td>DINO ViT-B/16</td>
-    <td>21M</td>
+    <td>85M</td>
     <td>0.81</td>
     <td>0.47</td>
     <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase16_pretrain/dino_vitbase16_pretrain.pth">backbone only</a></td>
@@ -76,7 +76,7 @@ As a joint project between [UiT](https://uit.no/startsida) and [Equinor](https:/
   </tr>
   <tr>
     <td>DINO ViT-B/8</td>
-    <td>21M</td>
+    <td>85M</td>
     <td>0.81</td>
     <td>0.47</td>
     <td><a href="https://dl.fbaipublicfiles.com/dino/dino_vitbase8_pretrain/dino_vitbase8_pretrain.pth">backbone only</a></td>
